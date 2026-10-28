@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of a Computer Science student at California State University San Marcos.">
+  <title>Alain Guadiana Ponce | Computer Science Portfolio</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121a2e;
+      --panel-light: #18233c;
+      --text: #f3f6ff;
+      --muted: #aeb9d2;
+      --accent: #7dd3fc;
+      --accent-2: #a7f3d0;
+      --line: rgba(255,255,255,.12);
+      --max: 1080px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: radial-gradient(ellipse at top right, #17264a 0, var(--bg) 48%);
+      color: var(--text); font: 16px/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    header { position: sticky; top: 0; z-index: 5; background: rgba(11,16,32,.86); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+    nav { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { color: var(--text); font-weight: 800; letter-spacing: -.03em; }
+    .navlinks { display: flex; gap: 22px; flex-wrap: wrap; }
+    .navlinks a { color: var(--muted); font-size: .92rem; }
+    .hero { padding: 100px 0 76px; display: grid; grid-template-columns: 1.5fr .8fr; gap: 42px; align-items: center; }
+    .eyebrow { color: var(--accent-2); text-transform: uppercase; letter-spacing: .16em; font-size: .76rem; font-weight: 800; }
+    h1 { font-size: clamp(2.7rem, 7vw, 5.1rem); line-height: 1.04; letter-spacing: -.065em; margin: 16px 0 22px; }
+    h1 span { color: var(--accent); }
+    .lead { color: var(--muted); font-size: 1.12rem; max-width: 650px; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+    .btn { display: inline-block; padding: 11px 17px; border-radius: 12px; font-weight: 750; border: 1px solid var(--line); }
+    .btn.primary { background: var(--accent); color: #07111f; border-color: var(--accent); }
+    .btn.secondary { color: var(--text); background: rgba(255,255,255,.03); }
+    .hero-card { background: linear-gradient(145deg, rgba(125,211,252,.13), rgba(167,243,208,.04)); border: 1px solid var(--line); border-radius: 24px; padding: 28px; }
+    .monogram { width: 76px; height: 76px; border-radius: 22px; display: grid; place-items: center; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #07111f; font-size: 1.8rem; font-weight: 900; }
+    .hero-card h2 { margin: 20px 0 6px; font-size: 1.25rem; }
+    .hero-card p { color: var(--muted); margin: 0; }
+    .quickfacts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
+    .fact { padding: 13px; background: rgba(0,0,0,.16); border-radius: 13px; }
+    .fact strong { display: block; font-size: 1.2rem; }
+    .fact span { color: var(--muted); font-size: .83rem; }
+    section { padding: 64px 0; border-top: 1px solid var(--line); }
+    .section-head { max-width: 680px; margin-bottom: 28px; }
+    .section-head h2 { margin: 6px 0 10px; font-size: clamp(1.8rem, 4vw, 2.5rem); letter-spacing: -.04em; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { border: 1px solid var(--line); background: rgba(18,26,46,.82); border-radius: 18px; padding: 22px; }
+    .card h3 { margin: 8px 0; font-size: 1.1rem; }
+    .card p { color: var(--muted); margin: 0; }
+    .tag { display: inline-block; font-size: .75rem; color: var(--accent-2); background: rgba(167,243,208,.08); border: 1px solid rgba(167,243,208,.18); padding: 4px 9px; border-radius: 999px; }
+    .project-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .skills { display: flex; gap: 10px; flex-wrap: wrap; }
+    .skill { border: 1px solid var(--line); background: var(--panel); border-radius: 12px; padding: 10px 14px; }
+    .timeline { border-left: 2px solid rgba(125,211,252,.35); padding-left: 22px; }
+    .timeline-item { position: relative; padding: 0 0 24px; }
+    .timeline-item::before { content: ""; position: absolute; left: -29px; top: 8px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+    .timeline-item h3 { margin: 0 0 4px; }
+    .timeline-item p { margin: 0; color: var(--muted); }
+    .contact-panel { padding: 30px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; border: 1px solid var(--line); border-radius: 22px; background: linear-gradient(120deg, rgba(125,211,252,.1), rgba(167,243,208,.05)); }
+    .contact-panel h2 { margin: 0 0 8px; }
+    .contact-panel p { margin: 0; color: var(--muted); }
+    footer { padding: 26px 0 36px; color: var(--muted); font-size: .9rem; }
+    .small-note { color: var(--muted); font-size: .86rem; }
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; padding-top: 70px; }
+      .cards { grid-template-columns: 1fr; }
+      nav { align-items: flex-start; flex-direction: column; padding: 15px 0; }
+      .navlinks { gap: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="wrap" aria-label="Main navigation">
+      <a class="brand" href="#home">AGP<span style="color:var(--accent)">.</span></a>
+      <div class="navlinks">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="wrap hero" id="home">
+      <div>
+        <div class="eyebrow">Computer Science Student · CSUSM</div>
+        <h1>Hi, I'm Alain.<br><span>I build, learn, and solve.</span></h1>
+        <p class="lead">I'm a Computer Science student at California State University San Marcos, building a strong foundation in programming and problem-solving. I'm excited to keep learning, collaborate with others, and apply what I learn to practical projects.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">Explore my projects ↓</a>
+          <a class="btn secondary" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <div class="monogram" aria-label="Alain initials">AG</div>
+        <h2>Learning by building</h2>
+        <p>Currently developing my programming fundamentals through coursework and C++ lab projects.</p>
+        <div class="quickfacts">
+          <div class="fact"><strong>C++</strong><span>Current focus</span></div>
+          <div class="fact"><strong>2030</strong><span>Expected graduation</span></div>
+        </div>
+      </aside>
+    </div>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">About me</div>
+          <h2>A curious student with a builder's mindset.</h2>
+          <p>I'm at the beginning of my computer science journey and focused on growing my technical skills one project at a time. I value clear communication, persistence, and being willing to learn something new.</p>
+        </div>
+        <div class="cards">
+          <article class="card"><span class="tag">01 · Learn</span><h3>Build strong fundamentals</h3><p>Strengthening my understanding of programming, logic, and core computer science concepts.</p></article>
+          <article class="card"><span class="tag">02 · Create</span><h3>Practice through projects</h3><p>Using class assignments and lab work to turn concepts into working programs.</p></article>
+          <article class="card"><span class="tag">03 · Grow</span><h3>Gain real-world experience</h3><p>Looking for opportunities to contribute, learn from a team, and develop as a future technologist.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Selected work</div>
+          <h2>Projects & coursework</h2>
+          <p>These CS111 projects demonstrate practice with loops, input validation, character codes, arithmetic, conditional logic, billing calculations, discounts, and formatted output.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="project-top"><span class="tag">C++ · CS111</span><span aria-hidden="true">✦</span></div>
+            <h3>Star Pattern Generator</h3>
+            <p><strong>Overview:</strong> A console program that asks for a number of rows and prints a right-aligned pattern with one additional star on each line.</p>
+            <p style="margin-top:12px"><strong>What I practiced:</strong> Input validation, nested <code>for</code> loops, spacing, and formatted console output.</p>
+            <p style="margin-top:14px"><span class="small-note">Source file: stars.cpp</span></p>
+          </article>
+          <article class="card">
+            <div class="project-top"><span class="tag">C++ · CS111</span><span aria-hidden="true">✦</span></div>
+            <h3>ASCII Character Table</h3>
+            <p><strong>Overview:</strong> A console program that displays characters for ASCII values 35 through 126, arranging the output into rows of 14 characters.</p>
+            <p style="margin-top:12px"><strong>What I practiced:</strong> Integer-to-character conversion, loops, counters, and conditional line breaks.</p>
+            <p style="margin-top:14px"><span class="small-note">Source file: asciiTable.cpp</span></p>
+          </article>
+          <article class="card">
+            <div class="project-top"><span class="tag">C++ · CS111</span><span aria-hidden="true">✦</span></div>
+            <h3>Doubling Pennies Calculator</h3>
+            <p><strong>Overview:</strong> A console program that calculates daily pay starting at one cent and doubling each day, then displays a formatted table and cumulative total for the requested number of days.</p>
+            <p style="margin-top:12px"><strong>What I practiced:</strong> Loops, numeric variables, cumulative totals, precision formatting, and input validation.</p>
+            <p style="margin-top:14px"><span class="small-note">Source file: pennies.cpp</span></p>
+          </article>
+          <article class="card">
+            <div class="project-top"><span class="tag">C++ · CS111</span><span aria-hidden="true">✦</span></div>
+            <h3>Celsius to Fahrenheit Converter</h3>
+            <p><strong>Overview:</strong> A console program that accepts a Celsius temperature, converts it to Fahrenheit, and rounds the displayed result to a whole number.</p>
+            <p style="margin-top:12px"><strong>What I practiced:</strong> Variables, arithmetic expressions, type conversion, user input, and numeric rounding.</p>
+            <p style="margin-top:14px"><span class="small-note">Source file: temperature.cpp</span></p>
+          </article>
+          <article class="card">
+            <div class="project-top"><span class="tag">C++ · CS111</span><span aria-hidden="true">✦</span></div>
+            <h3>Two-Way Temperature Converter</h3>
+            <p><strong>Overview:</strong> A menu-based console program that lets the user choose Fahrenheit or Celsius and converts the entered temperature to the other scale.</p>
+            <p style="margin-top:12px"><strong>What I practiced:</strong> Conditional statements, switch-case logic, conversion formulas, and formatted decimal output.</p>
+            <p style="margin-top:14px"><span class="small-note">Source file: temperatureSwitch.cpp</span></p>
+          </article>
+          <article class="card">
+            <div class="project-top"><span class="tag">C++ · CS111</span><span aria-hidden="true">✦</span></div>
+            <h3>Lowercase to Uppercase Converter</h3>
+            <p><strong>Overview:</strong> A console program that reads a lowercase letter and outputs its uppercase counterpart using the character-code offset.</p>
+            <p style="margin-top:12px"><strong>What I practiced:</strong> Character variables, character codes, type casting, and basic input/output.</p>
+            <p style="margin-top:14px"><span class="small-note">Source file: lowerToUpper.cpp</span></p>
+          </article>
+          <article class="card">
+            <div class="project-top"><span class="tag">C++ · CS111</span><span aria-hidden="true">✦</span></div>
+            <h3>Clock Hand Angle Calculator</h3>
+            <p><strong>Overview:</strong> Accepts hours and minutes, then calculates the angles of the hour and minute hands using the entered time.</p>
+            <p style="margin-top:12px"><strong>What I practiced:</strong> Arithmetic formulas, modulo operations, numeric type conversion, and handling the hour hand's angle wraparound.</p>
+            <p style="margin-top:14px"><span class="small-note">Source file: clock.cpp</span></p>
+          </article>
+          <article class="card">
+            <div class="project-top"><span class="tag">C++ · CS111</span><span aria-hidden="true">✦</span></div>
+            <h3>Nearest Integer to a Square Root</h3>
+            <p><strong>Overview:</strong> Searches for the integers above and below the square root of a positive input number, compares their squared distances from the number, and reports which integer is closer.</p>
+            <p style="margin-top:12px"><strong>What I practiced:</strong> Loops, conditional logic, integer arithmetic, comparing differences, and tracking values.</p>
+            <p style="margin-top:14px"><span class="small-note">Source file: sqrt-step1-2.cpp</span></p>
+          </article>
+          <article class="card">
+            <div class="project-top"><span class="tag">C++ · CS111</span><span aria-hidden="true">✦</span></div>
+            <h3>Electric Bill Calculator</h3>
+            <p><strong>Overview:</strong> Collects a customer's name, billing month, and current and previous meter readings, then estimates the bill using a flat charge and a month-dependent rate for usage above 400 kWh.</p>
+            <p style="margin-top:12px"><strong>What I practiced:</strong> Switch statements, input validation, conditional logic, calculations, and currency formatting.</p>
+            <p style="margin-top:14px"><span class="small-note">Source file: electricBill.cpp</span></p>
+          </article>
+          <article class="card">
+            <div class="project-top"><span class="tag">C++ · CS111</span><span aria-hidden="true">✦</span></div>
+            <h3>Software Purchase Invoice</h3>
+            <p><strong>Overview:</strong> Takes a date, company name, and requested quantity of software, applies a quantity-based discount, and prints an invoice showing the subtotal, discount, and amount due.</p>
+            <p style="margin-top:12px"><strong>What I practiced:</strong> Multi-branch conditionals, quantity validation, percentage calculations, strings, and formatted receipt output.</p>
+            <p style="margin-top:14px"><span class="small-note">Source file: software.cpp</span></p>
+          </article>
+        </div>
+        <p class="small-note" style="margin-top:18px">Tip: only publish work you're allowed to share, and don't upload course solutions if your instructor prohibits it.</p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Technical toolkit</div>
+          <h2>Skills I'm developing</h2>
+          <p>This list is intentionally beginner-friendly. Add tools and skills as you gain experience, and be ready to discuss each one honestly.</p>
+        </div>
+        <div class="skills">
+          <span class="skill">C++ fundamentals</span>
+          <span class="skill">Problem-solving</span>
+          <span class="skill">Debugging basics</span>
+          <span class="skill">Programming logic</span>
+          <span class="skill">Coursework-based projects</span>
+          <span class="skill">Willingness to learn</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Education</div>
+          <h2>My academic path</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3>California State University San Marcos</h3>
+            <p><strong>Bachelor's degree in Computer Science</strong> · Expected graduation: 2030</p>
+            <p>Relevant focus: introductory programming, C++ lab projects, and core computer science foundations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-panel">
+          <div>
+            <div class="eyebrow">Contact</div>
+            <h2>Let's connect.</h2>
+            <p>I'm interested in learning opportunities, internships, and entry-level experience.</p>
+            <p class="small-note" style="margin-top:8px">Replace the placeholder links with your real contact details before publishing.</p>
+          </div>
+          <div class="actions" style="margin-top:0">
+            <a class="btn primary" href="mailto:your.email@example.com">Email me</a>
+            <a class="btn secondary" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="btn secondary" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="year">2026</span> Alain Guadiana Ponce · Computer Science Portfolio</div>
+  </footer>
+</body>
+</html>
